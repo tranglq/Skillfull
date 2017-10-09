@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    public float speed;
-
-    private Rigidbody rb;
-
+    public float tilt;
 
 	void Start () {
-        rb = GetComponent<Rigidbody>();
+        GetComponent<Rigidbody>();
 	}
 	
 	void FixedUpdate () {
         float moveVertical = Input.GetAxis("Vertical");
         float moveHorizontal = Input.GetAxis("Horizontal");
 
-        Vector3 movement = new Vector3(moveVertical*speed, moveHorizontal*speed, 0.0f);
-        rb.rotation = Quaternion.Euler(movement);
+        GetComponent<Rigidbody>().position = new Vector3(0.0f, 0.0f, 0.0f);
+        GetComponent<Rigidbody>().rotation = Quaternion.Euler(moveVertical * tilt -90, 0.0f, moveHorizontal * tilt);
 	}
 }
