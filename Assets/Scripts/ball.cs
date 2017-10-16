@@ -3,17 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ball : MonoBehaviour {
-    private float speed;
+    
+	public float speed;
 
-	// Use this for initialization
-	void Start () {
-        GetComponent<Rigidbody>();
-        GetComponent<Collider>();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        GetComponent<Rigidbody>();
-        GetComponent<Collider>();
+	private Vector3 force;
+	private Rigidbody rb;
+
+    void Start()
+    {
+       rb = GetComponent<Rigidbody>();
     }
+    
+	IEnumerator ForceRandom()
+	{
+		
+		Debug.Log(Time.time);
+		rb.AddForce(Random.Range(0, 10) *  speed, 0.0f, Random.Range(0, 10) *speed, ForceMode.Impulse);
+		yield return new WaitForSeconds(5);
+		Debug.Log(Time.time);
+	}
+/*
+	void FixedUpdate()
+	{
+		Debug.Log(Time.time);
+		rb.AddForce(Random.Range(0, 10) *  speed, 0.0f, Random.Range(0, 10) *speed, ForceMode.Impulse);
+		Debug.Log(Time.time);
+	}
+
+*/
+
 }
