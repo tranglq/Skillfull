@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
         float moveHorizontal = Input.GetAxis("Horizontal");
 
         GetComponent<Rigidbody>().position = new Vector3(0.0f, 0.0f, 0.0f);
-        GetComponent<Rigidbody>().rotation = Quaternion.Euler(moveVertical * tilt, 0.0f, - moveHorizontal * tilt);
+        GetComponent<Rigidbody>().rotation = Quaternion.Euler(moveVertical * tilt + 30, 0.0f, - moveHorizontal * tilt);
 	}
 
 }

@@ -13,23 +13,20 @@ public class ball : MonoBehaviour {
     {
        rb = GetComponent<Rigidbody>();
     }
-    
-	IEnumerator ForceRandom()
-	{
-		
-		Debug.Log(Time.time);
-		rb.AddForce(Random.Range(0, 10) *  speed, 0.0f, Random.Range(0, 10) *speed, ForceMode.Impulse);
+ 
+	IEnumerator RandomForce() {
 		yield return new WaitForSeconds(5);
-		Debug.Log(Time.time);
 	}
-/*
+
 	void FixedUpdate()
 	{
 		Debug.Log(Time.time);
-		rb.AddForce(Random.Range(0, 10) *  speed, 0.0f, Random.Range(0, 10) *speed, ForceMode.Impulse);
+		rb.AddForce(Random.Range(0, 2) *  speed, 0.0f, Random.Range(0, 2) *speed, ForceMode.Impulse);
 		Debug.Log(Time.time);
+		RandomForce ();
 	}
 
-*/
+
+
 
 }
